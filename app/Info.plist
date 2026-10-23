@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>会议录音器</string>
+	<key>CFBundleExecutable</key>
+	<string>MeetingRecorder</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.pxing.mrecorder</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>会议录音器</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.20261022.1600</string>
+	<key>CFBundleVersion</key>
+	<string>202610221600</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>26.0</string>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>录制系统音频输出，用于生成会议记录中「对方」这一轨的音频。音频全程留在本机，不会上传。</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>会议录音与转写稿保存在「文稿」文件夹下的 MeetingRecorder 目录中。</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>录制本机麦克风，用于生成会议记录中「我」这一轨的音频。</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>在本机把录音转写成文字稿。转写完全离线完成。</string>
+</dict>
+</plist>

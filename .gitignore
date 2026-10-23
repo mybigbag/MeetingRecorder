@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager 构建产物
+.build/
+.swiftpm/
+Package.resolved
+
+# 打包产物：.app 里有签名与个人证书链，且可用 build-app.sh 重建
+MeetingRecorder.app/
+*.app/
+
+# 二进制备份
+*.bak
+mr.bin.bak
+
+# 探针在仓库根留下的临时标记
+.probe-window-id
+
+# GUI 探针的编译产物（脚本每次会重新编译）
+scripts/.gui-probe-bin/probe
+
+# 本地会议数据。默认落在 ~/Documents/MeetingRecorder，
+# 但如果用 --root 指到仓库里，这些文件绝不能进版本库。
+*.wav
+MeetingRecorder/
+
+# 编辑器
+.vscode/
+*.xcodeproj
+xcuserdata/

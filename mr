@@ -1,0 +1,46 @@
+#!/bin/bash
+# 会议录音器的命令行入口。**转发到 .app 里的那个二进制。**
+#
+# 为什么不是裸二进制：
+#
+# 1. **权限**：系统音频捕获（Core Audio Process Tap）的 TCC 授权只授予
+#    带有效 Info.plist 的 .app bundle。裸二进制拿不到权限，而且失败是
+#    **静默的**——所有 API 返回 0、采样点数完全正确，但缓冲区全是零。
+#    这条路曾经白查了很久。
+#
+# 2. **版本**：裸二进制是某次 `swift build` 的产物，之后再没更新过。
+#    仓库根这个文件曾经比 .app 里的旧 11 天——`mr config set status-icon on`
+#    在 .app 里已经生效，从 `mr` 这条路改却毫无反应。
+#    转发到 .app 之后，`mr` 永远是打包时的那一份，不会再漂。
+#
+# 3. **状态栏图标**：GUI 模式必须由 LaunchServices 启动，系统才会登记
+#    状态栏项。.app 里的二进制自带交接逻辑（`LaunchServicesHandoff`），
+#    直接执行它会自动 `open -a` 交接出去，所以经由 `mr` 启动 GUI 也是安全的。
+#
+# 用法不变：`mr record` / `mr list` / `mr doctor` / `mr config set ...`
+set -euo pipefail
+# 先解析软链。`/opt/homebrew/bin/mr` 是指向本文件的一个软链——
+# 直接用 `dirname "${BASH_SOURCE[0]}"` 会得到 `/opt/homebrew/bin`，
+# 于是它去找 `/opt/homebrew/bin/MeetingRecorder.app`，报「找不到可执行文件」。
+# 这条路径很常见：把 `mr` 软链到 PATH 里的目录（`/usr/local/bin`、
+# `/opt/homebrew/bin`）之后，从这里调用就成了日常用法，所以必须解开。
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  case "$SOURCE" in
+    /*) ;;
+    *) SOURCE="$DIR/$SOURCE" ;;
+  esac
+done
+HERE="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+APP="$HERE/MeetingRecorder.app"
+BIN="$APP/Contents/MacOS/MeetingRecorder"
+
+if [ ! -x "$BIN" ]; then
+  echo "❌ 找不到可执行文件：$BIN" >&2
+  echo "   先跑一次打包： ./scripts/build-app.sh" >&2
+  exit 1
+fi
+
+exec "$BIN" "$@"

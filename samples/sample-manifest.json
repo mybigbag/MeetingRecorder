@@ -1,0 +1,36 @@
+{
+  "endedAt" : "2026-10-19T06:20:04.929Z",
+  "notes" : [],
+  "sessionID" : "2026-10-19-143012-示例会议",
+  "startedAt" : "2026-10-19T06:19:48.935Z",
+  "state" : "transcribed",
+  "title" : "示例会议：帮助中心改版评审",
+  "tracks" : [
+    {
+      "channels" : 1,
+      "deviceName" : "内置麦克风",
+      "deviceUID" : "BuiltInMicrophoneDevice",
+      "fileName" : "mic.wav",
+      "firstHostTime" : 22106531262807,
+      "framesWritten" : 2969600,
+      "id" : "mic",
+      "lastHostTime" : 22106915108333,
+      "role" : "microphone",
+      "sampleRate" : 48000,
+      "warnings" : []
+    },
+    {
+      "channels" : 2,
+      "deviceName" : "系统音频输出",
+      "fileName" : "system.wav",
+      "firstHostTime" : 22106531455914,
+      "framesWritten" : 2970240,
+      "id" : "system",
+      "lastHostTime" : 22106915187414,
+      "role" : "systemAudio",
+      "sampleRate" : 48000,
+      "warnings" : []
+    }
+  ],
+  "version" : 1
+}

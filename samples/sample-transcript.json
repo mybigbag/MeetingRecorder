@@ -1,0 +1,58 @@
+{
+  "engine" : "apple-speech",
+  "generatedAt" : "2026-10-19T06:30:12Z",
+  "language" : "zh-CN",
+  "segments" : [
+    {
+      "end" : 7.84,
+      "overlapping" : false,
+      "speaker" : "我",
+      "start" : 0.0,
+      "text" : "今天主要对一下帮助中心改版的排期，先看搜索这块的进度。",
+      "track" : "mic"
+    },
+    {
+      "end" : 20.5,
+      "overlapping" : true,
+      "speaker" : "对方",
+      "start" : 9.12,
+      "text" : "搜索的重排已经灰度上线了，命中率大概提升六个点，但文章详情页的加载慢了二百毫秒。",
+      "track" : "system"
+    },
+    {
+      "end" : 29.2,
+      "overlapping" : true,
+      "speaker" : "我",
+      "start" : 21.4,
+      "text" : "二百毫秒有点大，先确认是不是图片没走 CDN。",
+      "track" : "mic"
+    },
+    {
+      "end" : 44.6,
+      "overlapping" : false,
+      "speaker" : "对方",
+      "start" : 31.0,
+      "text" : "查过了，是评论区的头像还在源站取，改成 CDN 之后应该能回来。",
+      "track" : "system"
+    },
+    {
+      "end" : 54.1,
+      "overlapping" : false,
+      "speaker" : "我",
+      "start" : 45.2,
+      "text" : "那就这周修掉，下周再看一次数据，别的先不动。",
+      "track" : "mic"
+    },
+    {
+      "end" : 61.9,
+      "overlapping" : false,
+      "speaker" : "对方",
+      "start" : 55.6,
+      "text" : "好，我周五前给结论。",
+      "track" : "system"
+    }
+  ],
+  "sessionID" : "2026-10-19-143012-示例会议",
+  "title" : "示例会议：帮助中心改版评审",
+  "version" : 1
+}
